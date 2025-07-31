@@ -1,0 +1,1241 @@
+/* ==================== RESET & BASE STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Color System */
+    --primary-color: #059669;
+    --secondary-color: #10b981;
+    --accent-color: #6366f1;
+    --background-color: #ffffff;
+    --surface-color: #f9fafb;
+    --text-primary: #1a202c;
+    --text-secondary: #6b7280;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    
+    /* Prayer Time Colors */
+    --fajr-color: #1e40af;
+    --zuhr-color: #f59e0b;
+    --asr-color: #ea580c;
+    --maghrib-color: #dc2626;
+    --isha-color: #6366f1;
+    
+    /* Feature Colors */
+    --quran-color: #7c3aed;
+    --tasbih-color: #dc2626;
+    --qiblah-color: #ea580c;
+    --hadees-color: #0369a1;
+    
+    /* Typography */
+    --font-primary: 'Playfair Display', Georgia, serif;
+    --font-secondary: 'Cormorant Garamond', Times, serif;
+    --font-system: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 20px;
+    --radius-xl: 24px;
+    --radius-2xl: 32px;
+    --radius-full: 50%;
+    
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
+    --transition-normal: 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* ==================== FONT IMPORTS ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+/* ==================== BASE STYLES ==================== */
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-system);
+    background: linear-gradient(135deg, rgba(236, 253, 245, 0.6) 0%, rgba(209, 250, 229, 0.4) 100%);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ==================== HEADER SECTION ==================== */
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: var(--spacing-xl) var(--spacing-lg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    text-align: center;
+    box-shadow: 0 4px 32px var(--shadow-color);
+}
+
+.header-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    animation: fadeInDown 0.6s ease-out;
+}
+
+.header-logo img {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 20px rgba(5, 150, 105, 0.15);
+    transition: transform var(--transition-normal);
+}
+
+.header-logo img:hover {
+    transform: scale(1.05);
+}
+
+.header-title {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: clamp(1.5rem, 4vw, 2.75rem);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+.header-subtitle {
+    font-family: var(--font-secondary);
+    font-weight: 300;
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.75px;
+    margin-top: -8px;
+}
+
+.header-controls {
+    position: absolute;
+    top: var(--spacing-xl);
+    right: var(--spacing-lg);
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.header-icon {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--radius-full);
+    padding: 14px;
+    box-shadow: 0 4px 16px var(--shadow-color);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.header-icon:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 24px rgba(5, 150, 105, 0.2);
+    background: rgba(5, 150, 105, 0.16);
+}
+
+.header-icon svg,
+.header-icon img {
+    width: 28px;
+    height: 28px;
+    color: var(--text-primary);
+}
+
+.notification-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #ef4444;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: var(--radius-full);
+    min-width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 2s infinite;
+}
+
+/* ==================== MAIN CONTENT AREA ==================== */
+.main-content {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    padding-bottom: 120px; /* Space for bottom navigation */
+}
+
+/* ==================== CURRENT TIME DISPLAY ==================== */
+.current-time-display {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    margin: var(--spacing-lg);
+    box-shadow: 0 8px 32px var(--shadow-color);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+}
+
+.current-time {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    color: var(--text-primary);
+    letter-spacing: 2px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.current-date {
+    font-family: var(--font-secondary);
+    font-weight: 300;
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.hijri-date {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.hijri-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    direction: rtl;
+}
+
+.next-prayer-countdown {
+    background: rgba(5, 150, 105, 0.08);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+    border: 1px solid rgba(5, 150, 105, 0.2);
+}
+
+.next-prayer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.next-prayer-name {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.next-prayer-time {
+    font-family: var(--font-system);
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+
+.countdown {
+    font-family: var(--font-system);
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(5, 150, 105, 0.2);
+    border-radius: 2px;
+    margin-top: var(--spacing-md);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 2px;
+    transition: width var(--transition-slow);
+}
+
+/* ==================== PRAYER TIMES GRID ==================== */
+.prayer-times-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+}
+
+.prayer-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: 0 8px 32px var(--shadow-color);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    min-height: 180px;
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.prayer-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.prayer-card.active {
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.3);
+}
+
+.prayer-card.completed::after {
+    content: '✓';
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: var(--primary-color);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.875rem;
+}
+
+.prayer-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.prayer-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.prayer-title {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.prayer-name {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.prayer-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    direction: rtl;
+}
+
+.prayer-time {
+    font-family: var(--font-system);
+    font-weight: 600;
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.prayer-details {
+    font-family: var(--font-system);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.prayer-status {
+    font-family: var(--font-system);
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    display: inline-block;
+}
+
+.status-completed {
+    background: rgba(5, 150, 105, 0.1);
+    color: var(--primary-color);
+}
+
+.status-next {
+    background: rgba(234, 88, 12, 0.1);
+    color: var(--asr-color);
+    animation: pulse 2s infinite;
+}
+
+.status-upcoming {
+    background: rgba(107, 114, 128, 0.1);
+    color: var(--text-secondary);
+}
+
+.status-missed {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+/* Prayer Card Specific Colors */
+.prayer-card.fajr {
+    border-left: 4px solid var(--fajr-color);
+}
+
+.prayer-card.fajr .prayer-name {
+    color: var(--fajr-color);
+}
+
+.prayer-card.zuhr {
+    border-left: 4px solid var(--zuhr-color);
+}
+
+.prayer-card.zuhr .prayer-name {
+    color: var(--zuhr-color);
+}
+
+.prayer-card.asr {
+    border-left: 4px solid var(--asr-color);
+}
+
+.prayer-card.asr .prayer-name {
+    color: var(--asr-color);
+}
+
+.prayer-card.maghrib {
+    border-left: 4px solid var(--maghrib-color);
+}
+
+.prayer-card.maghrib .prayer-name {
+    color: var(--maghrib-color);
+}
+
+.prayer-card.isha {
+    border-left: 4px solid var(--isha-color);
+}
+
+.prayer-card.isha .prayer-name {
+    color: var(--isha-color);
+}
+
+/* ==================== BOTTOM NAVIGATION ==================== */
+.bottom-navigation {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 -4px 32px var(--shadow-color);
+    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+    padding: var(--spacing-md) var(--spacing-lg);
+    z-index: 1000;
+}
+
+.nav-tabs {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.nav-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    min-width: 80px;
+    text-decoration: none;
+    color: var(--text-secondary);
+}
+
+.nav-tab:hover {
+    transform: translateY(-2px);
+    color: var(--primary-color);
+}
+
+.nav-tab.active {
+    background: rgba(5, 150, 105, 0.12);
+    color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.nav-icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    transition: color var(--transition-normal);
+}
+
+.nav-text {
+    font-family: var(--font-system);
+    font-weight: 500;
+    font-size: 0.75rem;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* ==================== FLOATING ACTION BUTTON ==================== */
+.floating-action-button {
+    position: fixed;
+    bottom: 120px;
+    right: var(--spacing-lg);
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(5, 150, 105, 0.3);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    z-index: 1001;
+    border: none;
+}
+
+.floating-action-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 40px rgba(5, 150, 105, 0.4);
+}
+
+.floating-action-button svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+/* ==================== SECTION LAYOUTS ==================== */
+.section {
+    margin: var(--spacing-xl) 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-radius: var(--radius-xl);
+    margin: var(--spacing-lg);
+    box-shadow: 0 8px 32px var(--shadow-color);
+}
+
+.section-title {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    margin-bottom: var(--spacing-sm);
+}
+
+.section-subtitle {
+    font-family: var(--font-secondary);
+    font-weight: 300;
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+}
+
+.section-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    direction: rtl;
+    margin-top: var(--spacing-xs);
+}
+
+/* ==================== FEATURE GRIDS ==================== */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+}
+
+.feature-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 20px var(--shadow-color);
+    min-height: 120px;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.feature-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.feature-title {
+    font-family: var(--font-system);
+    font-weight: 600;
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.feature-description {
+    font-family: var(--font-system);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* ==================== CONTENT CARDS ==================== */
+.content-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin: var(--spacing-lg);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.content-label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-family: var(--font-system);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.arabic-text {
+    font-family: 'Amiri', serif;
+    font-size: 1.75rem;
+    line-height: 2.5;
+    color: var(--text-primary);
+    direction: rtl;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.translation-text {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #4b5563;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: var(--spacing-md);
+}
+
+.reference-text {
+    font-family: var(--font-system);
+    font-weight: 500;
+    font-size: 0.875rem;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.content-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.action-button {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    font-family: var(--font-system);
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.action-button:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.action-button.primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    box-shadow: 0 4px 16px rgba(5, 150, 105, 0.3);
+}
+
+.action-button.primary:hover {
+    box-shadow: 0 6px 24px rgba(5, 150, 105, 0.4);
+}
+
+/* ==================== DIGITAL COUNTER (TASBIH) ==================== */
+.digital-counter {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-2xl);
+    margin: var(--spacing-lg);
+    box-shadow: 0 12px 48px var(--shadow-color);
+    border: 2px solid rgba(220, 38, 38, 0.2);
+    text-align: center;
+}
+
+.current-dhikr {
+    margin-bottom: var(--spacing-xl);
+}
+
+.dhikr-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 2.5rem;
+    color: var(--tasbih-color);
+    text-align: center;
+    line-height: 1.4;
+    margin-bottom: var(--spacing-md);
+}
+
+.dhikr-translation {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #4b5563;
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.count-display {
+    position: relative;
+    margin-bottom: var(--spacing-xl);
+}
+
+.current-count {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 4rem;
+    color: var(--tasbih-color);
+    text-align: center;
+    line-height: 1;
+}
+
+.target-count {
+    font-family: var(--font-system);
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: var(--spacing-sm);
+}
+
+.progress-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 160px;
+    height: 160px;
+    pointer-events: none;
+}
+
+.progress-ring-circle {
+    fill: none;
+    stroke-width: 8;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    transition: stroke-dasharray var(--transition-slow);
+}
+
+.progress-ring-background {
+    stroke: rgba(220, 38, 38, 0.2);
+}
+
+.progress-ring-progress {
+    stroke: var(--tasbih-color);
+}
+
+.counter-button {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--tasbih-color) 0%, #ef4444 100%);
+    border-radius: var(--radius-full);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 32px rgba(220, 38, 38, 0.4);
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    font-weight: 600;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.counter-button:hover {
+    transform: scale(1.05);
+}
+
+.counter-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 20px rgba(220, 38, 38, 0.6);
+}
+
+.counter-controls {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.control-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm);
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    font-family: var(--font-system);
+    font-size: 0.75rem;
+    color: var(--text-primary);
+}
+
+.control-button:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* ==================== COMPASS (QIBLAH) ==================== */
+.compass-container {
+    width: 320px;
+    height: 320px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border-radius: var(--radius-full);
+    margin: var(--spacing-lg) auto;
+    box-shadow: 0 12px 48px var(--shadow-color);
+    border: 4px solid rgba(234, 88, 12, 0.2);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.compass-rose {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background: conic-gradient(from 0deg, var(--qiblah-color), #f97316, #fb923c, #fdba74, var(--qiblah-color));
+    border-radius: var(--radius-full);
+    opacity: 0.1;
+}
+
+.cardinal-directions {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.cardinal-direction {
+    position: absolute;
+    font-family: var(--font-system);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+
+.cardinal-direction.north {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cardinal-direction.east {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.cardinal-direction.south {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cardinal-direction.west {
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.qiblah-arrow {
+    position: absolute;
+    width: 8px;
+    height: 120px;
+    background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border-radius: 4px;
+    transform-origin: center bottom;
+    box-shadow: 0 4px 16px rgba(5, 150, 105, 0.4);
+    transition: transform var(--transition-normal);
+}
+
+.qiblah-arrow::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 20px solid var(--primary-color);
+}
+
+.qiblah-arrow::after {
+    content: '🕋';
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+}
+
+.center-dot {
+    width: 16px;
+    height: 16px;
+    background: var(--qiblah-color);
+    border-radius: var(--radius-full);
+    position: absolute;
+    box-shadow: 0 2px 8px rgba(234, 88, 12, 0.4);
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    text-align: center;
+    box-shadow: 0 4px 16px var(--shadow-color);
+}
+
+.info-card-icon {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.info-card-label {
+    font-family: var(--font-system);
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.info-card-value {
+    font-family: var(--font-system);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.info-card-description {
+    font-family: var(--font-system);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 768px) {
+    .header {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    .header-controls {
+        position: static;
+        justify-content: center;
+        margin-top: var(--spacing-md);
+    }
+    
+    .header-title {
+        font-size: 1.75rem;
+    }
+    
+    .current-time {
+        font-size: 2.5rem;
+    }
+    
+    .prayer-times-grid {
+        grid-template-columns: 1fr;
+        padding: var(--spacing-md);
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        padding: var(--spacing-md);
+    }
+    
+    .compass-container {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .compass-rose {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .nav-text {
+        font-size: 0.625rem;
+    }
+    
+    .floating-action-button {
+        width: 48px;
+        height: 48px;
+        bottom: 100px;
+        right: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .section-header,
+    .current-time-display,
+    .content-card,
+    .digital-counter {
+        margin: var(--spacing-sm);
+        padding: var(--spacing-lg);
+    }
+    
+    .prayer-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .counter-button {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5rem;
+    }
+    
+    .dhikr-arabic {
+        font-size: 2rem;
+    }
+    
+    .current-count {
+        font-size: 3rem;
+    }
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==================== DARK THEME SUPPORT ==================== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #111827;
+        --surface-color: #1f2937;
+        --text-primary: #f9fafb;
+        --text-secondary: #d1d5db;
+        --border-color: rgba(255, 255, 255, 0.1);
+        --shadow-color: rgba(0, 0, 0, 0.3);
+    }
+    
+    body {
+        background: linear-gradient(135deg, rgba(17, 24, 39, 0.9) 0%, rgba(31, 41, 55, 0.8) 100%);
+    }
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+    .header-controls,
+    .bottom-navigation,
+    .floating-action-button,
+    .content-actions {
+        display: none !important;
+    }
+    
+    .main-content {
+        padding-bottom: 0;
+    }
+    
+    .prayer-card,
+    .content-card {
+        break-inside: avoid;
+    }
+}
+
+/* ==================== UTILITY CLASSES ==================== */
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.rtl {
+    direction: rtl;
+}
+
+.ltr {
+    direction: ltr;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.blur {
+    filter: blur(4px);
+}
+
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.fade-in {
+    animation: fadeInDown 0.6s ease-out;
+}
+
+.slide-up {
+    animation: slideInUp 0.4s ease-out;
+}
