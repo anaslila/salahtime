@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salah Time Indicator - Prayer, Presence, Progress</title>
     
-    <!-- Favicon -->
+    <!-- Favicon with new logo -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://cdn-icons-png.flaticon.com/512/3159/3159876.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://cdn-icons-png.flaticon.com/512/3159/3159876.png">
     <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3159/3159876.png">
     
-    <!-- Font Imports -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
+    <!-- Product Sans Font (fallback to Google Fonts alternative) -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@300;400;500;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Fallback fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Your CSS and JavaScript -->
+    <!-- Your CSS -->
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -48,15 +49,15 @@
     <main class="main-content">
         <!-- Current Time Display -->
         <section class="current-time-display">
-            <div class="current-time">14:32</div>
-            <div class="current-date">Thursday, 1st August 2025</div>
+            <div class="current-time">12:00:00 AM</div>
+            <div class="current-date">Friday, 1st August 2025</div>
             <div class="hijri-date">25 Muharram 1447 AH</div>
             <div class="hijri-arabic">٢٥ محرم ١٤٤٧ هـ</div>
             
             <div class="next-prayer-countdown">
                 <div class="next-prayer-info">
                     <span class="next-prayer-name">Asr</span>
-                    <span class="next-prayer-time">16:45</span>
+                    <span class="next-prayer-time">04:45:00 PM</span>
                     <span class="countdown">2h 13m remaining</span>
                 </div>
                 <div class="progress-bar">
@@ -65,7 +66,7 @@
             </div>
         </section>
 
-        <!-- Prayer Times Grid -->
+        <!-- Prayer Times Grid - Namaz Time Section -->
         <section id="namaz-time" class="section">
             <div class="prayer-times-grid">
                 <div id="fajr-card" class="prayer-card fajr completed">
@@ -84,7 +85,7 @@
                             <p class="prayer-arabic">الفجر</p>
                         </div>
                     </div>
-                    <div class="prayer-time">05:24</div>
+                    <div class="prayer-time">05:24:00 AM</div>
                     <div class="prayer-details">2 Rakats • Dawn Prayer</div>
                     <div class="prayer-status status-completed">Completed</div>
                 </div>
@@ -107,7 +108,7 @@
                             <p class="prayer-arabic">الظهر</p>
                         </div>
                     </div>
-                    <div class="prayer-time">13:15</div>
+                    <div class="prayer-time">01:15:00 PM</div>
                     <div class="prayer-details">4 Rakats • Noon Prayer</div>
                     <div class="prayer-status status-completed">Completed</div>
                 </div>
@@ -132,7 +133,7 @@
                             <p class="prayer-arabic">العصر</p>
                         </div>
                     </div>
-                    <div class="prayer-time">16:45</div>
+                    <div class="prayer-time">04:45:00 PM</div>
                     <div class="prayer-details">4 Rakats • Afternoon Prayer</div>
                     <div class="prayer-status status-next">Next Prayer</div>
                 </div>
@@ -154,7 +155,7 @@
                             <p class="prayer-arabic">المغرب</p>
                         </div>
                     </div>
-                    <div class="prayer-time">19:28</div>
+                    <div class="prayer-time">07:28:00 PM</div>
                     <div class="prayer-details">3 Rakats • Sunset Prayer</div>
                     <div class="prayer-status status-upcoming">Upcoming</div>
                 </div>
@@ -171,34 +172,133 @@
                             <p class="prayer-arabic">العشاء</p>
                         </div>
                     </div>
-                    <div class="prayer-time">20:52</div>
+                    <div class="prayer-time">08:52:00 PM</div>
                     <div class="prayer-details">4 Rakats • Night Prayer</div>
                     <div class="prayer-status status-upcoming">Upcoming</div>
                 </div>
             </div>
         </section>
 
-        <!-- Quick Actions -->
-        <section class="quick-actions">
-            <div class="action-button primary" id="play-azan-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                </svg>
-                <span>Play Azan</span>
+        <!-- Quran Section -->
+        <section id="quran" class="section hidden">
+            <div class="section-header">
+                <h2 class="section-title">Holy Quran</h2>
+                <p class="section-arabic">القرآن الكريم</p>
+                <p class="section-subtitle">Divine guidance and daily spiritual nourishment</p>
             </div>
-            <div class="action-button" id="tracker-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="9 11 12 14 22 4"></polyline>
-                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-                </svg>
-                <span>Prayer Tracker</span>
+            <div class="content-card">
+                <div class="content-label">
+                    <span>📖</span>
+                    <span>Verse of the Day</span>
+                </div>
+                <div class="arabic-text">وَأَقِمِ الصَّلَاةَ طَرَفَيِ النَّهَارِ وَزُلَفًا مِّنَ اللَّيْلِ ۚ إِنَّ الْحَسَنَاتِ يُذْهِبْنَ السَّيِّئَاتِ</div>
+                <div class="translation-text">"And establish prayer at the two ends of the day and at the approach of the night. Indeed, good deeds do away with misdeeds."</div>
+                <div class="reference-text">Quran 11:114</div>
             </div>
-            <div class="action-button" id="mosque-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>Nearby Mosques</span>
+        </section>
+
+        <!-- Tasbih Section -->
+        <section id="tasbih" class="section hidden">
+            <div class="section-header">
+                <h2 class="section-title">Digital Tasbih</h2>
+                <p class="section-arabic">التسبيح الرقمي</p>
+                <p class="section-subtitle">Count your dhikr and remember Allah</p>
+            </div>
+            <div class="digital-counter">
+                <div class="current-dhikr">
+                    <div class="dhikr-arabic">سُبْحَانَ ٱللَّٰهِ</div>
+                    <div class="dhikr-translation">SubhanAllah<br><small>Glory be to Allah</small></div>
+                </div>
+                <div class="count-display">
+                    <div class="current-count">0</div>
+                    <div class="target-count">of 33</div>
+                </div>
+                <button class="counter-button" id="tasbih-counter-btn">+</button>
+                <div class="counter-controls">
+                    <button class="control-button" id="reset-tasbih">🔄<br><small>Reset</small></button>
+                    <button class="control-button" id="vibrate-toggle">📳<br><small>Vibrate</small></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Qiblah Section -->
+        <section id="qiblah" class="section hidden">
+            <div class="section-header">
+                <h2 class="section-title">Qiblah Direction</h2>
+                <p class="section-arabic">اتجاه القبلة</p>
+                <p class="section-subtitle">Find the direction to Holy Kaaba in Makkah</p>
+            </div>
+            <div class="compass-container">
+                <div class="compass-rose"></div>
+                <div class="cardinal-directions">
+                    <div class="cardinal-direction north">N</div>
+                    <div class="cardinal-direction east">E</div>
+                    <div class="cardinal-direction south">S</div>
+                    <div class="cardinal-direction west">W</div>
+                </div>
+                <div class="qiblah-arrow" style="transform: translate(-50%, -100%) rotate(67deg);"></div>
+                <div class="center-dot"></div>
+            </div>
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="info-card-icon">🧭</div>
+                    <div class="info-card-label">Direction</div>
+                    <div class="info-card-value">67° NE</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon">📏</div>
+                    <div class="info-card-label">Distance</div>
+                    <div class="info-card-value">11,248 km</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hadees Section -->
+        <section id="hadees" class="section hidden">
+            <div class="section-header">
+                <h2 class="section-title">Noble Hadees</h2>
+                <p class="section-arabic">الأحاديث النبوية الشريفة</p>
+                <p class="section-subtitle">Sayings and traditions of Prophet Muhammad ﷺ</p>
+            </div>
+            <div class="content-card">
+                <div class="content-label">
+                    <span>📚</span>
+                    <span>Hadees of the Day</span>
+                </div>
+                <div class="arabic-text">مَنْ صَلَّى الْفَجْرَ فِي جَمَاعَةٍ فَكَأَنَّمَا صَلَّى اللَّيْلَ كُلَّهُ</div>
+                <div class="translation-text">"Whoever prays Fajr in congregation, it is as if he prayed the whole night."</div>
+                <div class="reference-text">Sahih Muslim</div>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings" class="section hidden">
+            <div class="section-header">
+                <h2 class="section-title">Settings</h2>
+                <p class="section-subtitle">Customize your spiritual experience</p>
+            </div>
+            <div class="content-card">
+                <h3>Prayer Settings</h3>
+                <div class="setting-item">
+                    <label>Calculation Method:</label>
+                    <select id="calculation-method">
+                        <option value="1">Muslim World League</option>
+                        <option value="2">ISNA</option>
+                        <option value="3">Egyptian General Authority</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label>Enable Notifications:</label>
+                    <input type="checkbox" id="enable-notifications" checked>
+                </div>
+                <div class="setting-item">
+                    <label>Theme:</label>
+                    <select id="theme-select">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="auto">Auto</option>
+                    </select>
+                </div>
             </div>
         </section>
     </main>
