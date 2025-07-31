@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NamazSalahWebsite>
+    <!-- Website Configuration -->
+    <WebsiteConfig>
+        <AppInfo>
+            <Name>Complete Namaz & Salah Time Indicator</Name>
+            <Version>1.0</Version>
+            <Description>Full-featured Islamic prayer time website</Description>
+            <Language>English</Language>
+            <Author>Islamic Web Solutions</Author>
+            <LastUpdated>2025-07-31</LastUpdated>
+        </AppInfo>
+        
+        <GeneralSettings>
+            <DefaultTimeFormat>24</DefaultTimeFormat>
+            <DefaultDateFormat>DD/MM/YYYY</DefaultDateFormat>
+            <AutoRefreshInterval>60</AutoRefreshInterval>
+            <DefaultTheme>light</DefaultTheme>
+            <ShowArabicText>true</ShowArabicText>
+            <EnableNotifications>true</EnableNotifications>
+        </GeneralSettings>
+    </WebsiteConfig>
+
+    <!-- Navigation Menu Structure -->
+    <NavigationMenu>
+        <MenuItem id="home">
+            <Title>Home</Title>
+            <Icon>🏠</Icon>
+            <Function>showPrayerTimes</Function>
+        </MenuItem>
+        <MenuItem id="mosques">
+            <Title>Mosque Finder</Title>
+            <Icon>🕌</Icon>
+            <Function>showMosqueDirectory</Function>
+        </MenuItem>
+        <MenuItem id="qibla">
+            <Title>Qibla Direction</Title>
+            <Icon>🧭</Icon>
+            <Function>showQiblaCompass</Function>
+        </MenuItem>
+        <MenuItem id="calendar">
+            <Title>Islamic Calendar</Title>
+            <Icon>📅</Icon>
+            <Function>showIslamicCalendar</Function>
+        </MenuItem>
+        <MenuItem id="quran">
+            <Title>Daily Quran</Title>
+            <Icon>📖</Icon>
+            <Function>showDailyQuran</Function>
+        </MenuItem>
+        <MenuItem id="hadith">
+            <Title>Daily Hadith</Title>
+            <Icon>📚</Icon>
+            <Function>showDailyHadith</Function>
+        </MenuItem>
+        <MenuItem id="settings">
+            <Title>Settings</Title>
+            <Icon>⚙️</Icon>
+            <Function>showSettings</Function>
+        </MenuItem>
+        <MenuItem id="about">
+            <Title>About</Title>
+            <Icon>ℹ️</Icon>
+            <Function>showAbout</Function>
+        </MenuItem>
+    </NavigationMenu>
+
+    <!-- Prayer Times Configuration -->
+    <PrayerTimesSection>
+        <PrayerNames>
+            <Prayer id="fajr">
+                <Name>Fajr</Name>
+                <ArabicName>الفجر</ArabicName>
+                <Description>Dawn Prayer</Description>
+                <Color>#1e3a8a</Color>
+                <Icon>🌅</Icon>
+            </Prayer>
+            <Prayer id="zuhr">
+                <Name>Zuhr</Name>
+                <ArabicName>الظهر</ArabicName>
+                <Description>Noon Prayer</Description>
+                <Color>#f59e0b</Color>
+                <Icon>☀️</Icon>
+            </Prayer>
+            <Prayer id="asr">
+                <Name>Asr</Name>
+                <ArabicName>العصر</ArabicName>
+                <Description>Afternoon Prayer</Description>
+                <Color>#ea580c</Color>
+                <Icon>🌤️</Icon>
+            </Prayer>
+            <Prayer id="maghrib">
+                <Name>Maghrib</Name>
+                <ArabicName>المغرب</ArabicName>
+                <Description>Sunset Prayer</Description>
+                <Color>#dc2626</Color>
+                <Icon>🌅</Icon>
+            </Prayer>
+            <Prayer id="isha">
+                <Name>Isha</Name>
+                <ArabicName>العشاء</ArabicName>
+                <Description>Night Prayer</Description>
+                <Color>#6b21a8</Color>
+                <Icon>🌙</Icon>
+            </Prayer>
+        </PrayerNames>
+        
+        <AdditionalTimes>
+            <Time id="sehri">
+                <Name>Sehri End</Name>
+                <ArabicName>السحري</ArabicName>
+                <Description>Pre-dawn meal ending time</Description>
+                <Icon>🍽️</Icon>
+                <ShowInRamadan>true</ShowInRamadan>
+            </Time>
+            <Time id="ishraaq">
+                <Name>Ishraaq</Name>
+                <ArabicName>الإشراق</ArabicName>
+                <Description>Post-sunrise prayer</Description>
+                <Icon>🌞</Icon>
+            </Time>
+            <Time id="chaasht">
+                <Name>Chaasht</Name>
+                <ArabicName>الضحى</ArabicName>
+                <Description>Mid-morning prayer</Description>
+                <Icon>☀️</Icon>
+            </Time>
+            <Time id="iftaar">
+                <Name>Iftaar</Name>
+                <ArabicName>الإفطار</ArabicName>
+                <Description>Sunset meal time during Ramadan</Description>
+                <Icon>🌙</Icon>
+                <ShowInRamadan>true</ShowInRamadan>
+            </Time>
+            <Time id="tahajjud">
+                <Name>Tahajjud</Name>
+                <ArabicName>التهجد</ArabicName>
+                <Description>Night prayer</Description>
+                <Icon>🌃</Icon>
+            </Time>
+        </AdditionalTimes>
+
+        <CalculationMethods>
+            <Method id="1">
+                <Name>Muslim World League</Name>
+                <FajrAngle>18</FajrAngle>
+                <IshaAngle>17</IshaAngle>
+                <MaghribParameter>0</MaghribParameter>
+                <AsrJuristic>1</AsrJuristic>
+                <Description>Most commonly used worldwide</Description>
+            </Method>
+            <Method id="2">
+                <Name>ISNA</Name>
+                <FajrAngle>15</FajrAngle>
+                <IshaAngle>15</IshaAngle>
+                <MaghribParameter>0</MaghribParameter>
+                <AsrJuristic>1</AsrJuristic>
+                <Description>Islamic Society of North America</Description>
+            </Method>
+            <Method id="3">
+                <Name>Egyptian General Authority</Name>
+                <FajrAngle>19.5</FajrAngle>
+                <IshaAngle>17.5</IshaAngle>
+                <MaghribParameter>0</MaghribParameter>
+                <AsrJuristic>1</AsrJuristic>
+                <Description>Egypt and surrounding regions</Description>
+            </Method>
+            <Method id="4">
+                <Name>Umm Al-Qura University</Name>
+                <FajrAngle>18.5</FajrAngle>
+                <IshaAngle>0</IshaAngle>
+                <MaghribParameter>90</MaghribParameter>
+                <AsrJuristic>1</AsrJuristic>
+                <Description>Makkah, Saudi Arabia</Description>
+            </Method>
+            <Method id="5">
+                <Name>University of Islamic Sciences, Karachi</Name>
+                <FajrAngle>18</FajrAngle>
+                <IshaAngle>18</IshaAngle>
+                <MaghribParameter>0</MaghribParameter>
+                <AsrJuristic>1</AsrJuristic>
+                <Description>Pakistan and India</Description>
+            </Method>
+        </CalculationMethods>
+    </PrayerTimesSection>
+
+    <!-- Mosque Directory -->
+    <MosqueDirectory>
+        <SearchFilters>
+            <Filter name="distance">Distance (km)</Filter>
+            <Filter name="facilities">Facilities</Filter>
+            <Filter name="services">Services</Filter>
+            <Filter name="denomination">School of Thought</Filter>
+        </SearchFilters>
+        
+        <Mosques>
+            <Mosque id="1">
+                <Name>Grand Central Mosque</Name>
+                <Address>123 Main Street, Downtown</Address>
+                <City>New York</City>
+                <Country>USA</Country>
+                <Latitude>40.7128</Latitude>
+                <Longitude>-74.0060</Longitude>
+                <ContactNumber>+1-234-567-8900</ContactNumber>
+                <Email>info@grandcentralmosque.org</Email>
+                <Website>www.grandcentralmosque.org</Website>
+                <Denomination>Sunni</Denomination>
+                <Capacity>2000</Capacity>
+                <EstablishedYear>1985</EstablishedYear>
+                <JamaatTimes>
+                    <Fajr>05:30</Fajr>
+                    <Zuhr>13:15</Zuhr>
+                    <Asr>16:45</Asr>
+                    <Maghrib>19:20</Maghrib>
+                    <Isha>20:45</Isha>
+                    <Jummah>13:00</Jummah>
+                    <TarawihRamadan>21:30</TarawihRamadan>
+                    <EidPrayer>08:00</EidPrayer>
+                </JamaatTimes>
+                <Facilities>
+                    <Facility>Parking Available (200 spaces)</Facility>
+                    <Facility>Wheelchair Accessible</Facility>
+                    <Facility>Air Conditioned</Facility>
+                    <Facility>Separate Women's Section</Facility>
+                    <Facility>Ablution Facilities</Facility>
+                    <Facility>Islamic Library</Facility>
+                    <Facility>Children's Area</Facility>
+                </Facilities>
+                <Services>
+                    <Service>Daily 5 Prayers</Service>
+                    <Service>Friday Khutbah (English/Arabic)</Service>
+                    <Service>Islamic Classes</Service>
+                    <Service>Quran Memorization</Service>
+                    <Service>Marriage Services</Service>
+                    <Service>Funeral Services</Service>
+                </Services>
+                <Images>
+                    <Image type="exterior">mosque1_exterior.jpg</Image>
+                    <Image type="interior">mosque1_interior.jpg</Image>
+                    <Image type="minaret">mosque1_minaret.jpg</Image>
+                </Images>
+            </Mosque>
+            
+            <Mosque id="2">
+                <Name>Community Islamic Center</Name>
+                <Address>456 Oak Avenue, Uptown</Address>
+                <City>New York</City>
+                <Country>USA</Country>
+                <Latitude>40.7589</Latitude>
+                <Longitude>-73.9851</Longitude>
+                <ContactNumber>+1-987-654-3210</ContactNumber>
+                <Email>contact@communityic.org</Email>
+                <Denomination>Sunni</Denomination>
+                <Capacity>800</Capacity>
+                <JamaatTimes>
+                    <Fajr>05:25</Fajr>
+                    <Zuhr>13:10</Zuhr>
+                    <Asr>16:40</Asr>
+                    <Maghrib>19:15</Maghrib>
+                    <Isha>20:40</Isha>
+                    <Jummah>12:45</Jummah>
+                </JamaatTimes>
+                <Facilities>
+                    <Facility>Parking Available</Facility>
+                    <Facility>Family Section</Facility>
+                    <Facility>Youth Programs</Facility>
+                </Facilities>
+            </Mosque>
+        </Mosques>
+    </MosqueDirectory>
+
+    <!-- Qibla Direction -->
+    <QiblaSection>
+        <KaabaLocation>
+            <Name>Holy Kaaba</Name>
+            <Latitude>21.4225</Latitude>
+            <Longitude>39.8262</Longitude>
+            <City>Makkah</City>
+            <Country>Saudi Arabia</Country>
+        </KaabaLocation>
+        
+        <CompassSettings>
+            <ShowDegrees>true</ShowDegrees>
+            <ShowCardinalDirections>true</ShowCardinalDirections>
+            <ShowDistance>true</ShowDistance>
+            <CalibrationInstructions>Hold device flat and rotate 360 degrees to calibrate</CalibrationInstructions>
+        </CompassSettings>
+        
+        <QiblaInstructions>
+            <Step>1. Allow location access for accurate direction</Step>
+            <Step>2. Hold your device flat (parallel to ground)</Step>
+            <Step>3. Calibrate compass by rotating device 360 degrees</Step>
+            <Step>4. Face the direction shown by the Qibla arrow</Step>
+            <Step>5. The green arrow points towards Holy Kaaba in Makkah</Step>
+        </QiblaInstructions>
+    </QiblaSection>
+
+    <!-- Islamic Calendar -->
+    <IslamicCalendar>
+        <CalendarSettings>
+            <ShowHijriDate>true</ShowHijriDate>
+            <ShowGregorianDate>true</ShowGregorianDate>
+            <StartOfWeek>Sunday</StartOfWeek>
+            <HighlightImportantDates>true</HighlightImportantDates>
+        </CalendarSettings>
+        
+        <ImportantDates>
+            <Date type="Eid">
+                <Name>Eid al-Fitr</Name>
+                <HijriDate>1 Shawwal</HijriDate>
+                <Description>Festival of Breaking the Fast</Description>
+                <Duration>3 days</Duration>
+                <Color>#10b981</Color>
+            </Date>
+            <Date type="Eid">
+                <Name>Eid al-Adha</Name>
+                <HijriDate>10 Dhul Hijjah</HijriDate>
+                <Description>Festival of Sacrifice</Description>
+                <Duration>4 days</Duration>
+                <Color>#10b981</Color>
+            </Date>
+            <Date type="Ramadan">
+                <Name>Start of Ramadan</Name>
+                <HijriDate>1 Ramadan</HijriDate>
+                <Description>Beginning of the holy month of fasting</Description>
+                <Color>#8b5cf6</Color>
+            </Date>
+            <Date type="Special">
+                <Name>Laylat al-Qadr</Name>
+                <HijriDate>27 Ramadan</HijriDate>
+                <Description>Night of Power</Description>
+                <Color>#f59e0b</Color>
+            </Date>
+            <Date type="Pilgrimage">
+                <Name>Day of Arafah</Name>
+                <HijriDate>9 Dhul Hijjah</HijriDate>
+                <Description>Most important day of Hajj</Description>
+                <Color>#dc2626</Color>
+            </Date>
+        </ImportantDates>
+        
+        <HijriMonths>
+            <Month id="1">Muharram</Month>
+            <Month id="2">Safar</Month>
+            <Month id="3">Rabi' al-awwal</Month>
+            <Month id="4">Rabi' al-thani</Month>
+            <Month id="5">Jumada al-awwal</Month>
+            <Month id="6">Jumada al-thani</Month>
+            <Month id="7">Rajab</Month>
+            <Month id="8">Sha'ban</Month>
+            <Month id="9">Ramadan</Month>
+            <Month id="10">Shawwal</Month>
+            <Month id="11">Dhu al-Qi'dah</Month>
+            <Month id="12">Dhu al-Hijjah</Month>
+        </HijriMonths>
+    </IslamicCalendar>
+
+    <!-- Daily Quran Content -->
+    <DailyQuran>
+        <QuranVerses>
+            <Verse prayerTime="Fajr" surah="2" ayah="238">
+                <Arabic>حَافِظُوا عَلَى الصَّلَوَاتِ وَالصَّلَاةِ الْوُسْطَىٰ وَقُومُوا لِلَّهِ قَانِتِينَ</Arabic>
+                <Translation>Maintain with care the [obligatory] prayers and [in particular] the middle prayer and stand before Allah, devoutly obedient.</Translation>
+                <Reference>Quran 2:238</Reference>
+                <Theme>Importance of Prayer</Theme>
+            </Verse>
+            <Verse prayerTime="Zuhr" surah="4" ayah="103">
+                <Arabic>إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا</Arabic>
+                <Translation>Indeed, prayer has been decreed upon the believers a decree of specified times.</Translation>
+                <Reference>Quran 4:103</Reference>
+                <Theme>Prescribed Prayer Times</Theme>
+            </Verse>
+            <Verse prayerTime="Asr" surah="11" ayah="114">
+                <Arabic>وَأَقِمِ الصَّلَاةَ طَرَفَيِ النَّهَارِ وَزُلَفًا مِّنَ اللَّيْلِ ۚ إِنَّ الْحَسَنَاتِ يُذْهِبْنَ السَّيِّئَاتِ</Arabic>
+                <Translation>And establish prayer at the two ends of the day and at the approach of the night. Indeed, good deeds do away with misdeeds.</Translation>
+                <Reference>Quran 11:114</Reference>
+                <Theme>Prayer Times and Good Deeds</Theme>
+            </Verse>
+            <Verse prayerTime="Maghrib" surah="20" ayah="130">
+                <Arabic>فَاصْبِرْ عَلَىٰ مَا يَقُولُونَ وَسَبِّحْ بِحَمْدِ رَبِّكَ قَبْلَ طُلُوعِ الشَّمْسِ وَقَبْلَ غُرُوبِهَا</Arabic>
+                <Translation>So be patient over what they say and exalt [Allah] with praise of your Lord before the rising of the sun and before its setting.</Translation>
+                <Reference>Quran 20:130</Reference>
+                <Theme>Patience and Praise</Theme>
+            </Verse>
+            <Verse prayerTime="Isha" surah="17" ayah="78">
+                <Arabic>أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ إِلَىٰ غَسَقِ اللَّيْلِ وَقُرْآنَ الْفَجْرِ</Arabic>
+                <Translation>Establish prayer at the decline of the sun [from its meridian] until the darkness of the night and [also] the Quran of dawn.</Translation>
+                <Reference>Quran 17:78</Reference>
+                <Theme>Prayer Schedule</Theme>
+            </Verse>
+        </QuranVerses>
+        
+        <QuranRecitation>
+            <ReciterOptions>
+                <Reciter id="1">
+                    <Name>Sheikh Abdul Rahman Al-Sudais</Name>
+                    <AudioPath>audio/sudais/</AudioPath>
+                </Reciter>
+                <Reciter id="2">
+                    <Name>Sheikh Mishary Rashid Alafasy</Name>
+                    <AudioPath>audio/alafasy/</AudioPath>
+                </Reciter>
+                <Reciter id="3">
+                    <Name>Sheikh Saad Al-Ghamdi</Name>
+                    <AudioPath>audio/ghamdi/</AudioPath>
+                </Reciter>
+            </ReciterOptions>
+        </QuranRecitation>
+    </DailyQuran>
+
+    <!-- Daily Hadith Content -->
+    <DailyHadith>
+        <HadithCollection>
+            <Hadith id="1" category="Prayer">
+                <Arabic>من صلى الفجر في جماعة فكأنما صلى الليل كله، ومن صلى العشاء في جماعة فكأنما قام نصف الليل</Arabic>
+                <Translation>Whoever prays Fajr in congregation, it is as if he prayed the whole night, and whoever prays Isha in congregation, it is as if he stood half the night in prayer.</Translation>
+                <Reference>Sahih Muslim</Reference>
+                <Theme>Congregational Prayer Benefits</Theme>
+                <Grade>Sahih</Grade>
+            </Hadith>
+            <Hadith id="2" category="Time">
+                <Arabic>أول وقت الظهر حين تزول الشمس، وآخر وقتها حين يصير ظل كل شيء مثله</Arabic>
+                <Translation>The time for Zuhr prayer begins when the sun passes the meridian, and its end is when the shadow of everything becomes equal to its length.</Translation>
+                <Reference>Sahih Muslim</Reference>
+                <Theme>Prayer Timing</Theme>
+                <Grade>Sahih</Grade>
+            </Hadith>
+            <Hadith id="3" category="Importance">
+                <Arabic>الصلاة عمود الدين، من أقامها أقام الدين، ومن هدمها هدم الدين</Arabic>
+                <Translation>Prayer is the pillar of religion. Whoever establishes it, establishes religion, and whoever destroys it, destroys religion.</Translation>
+                <Reference>Al-Bayhaqi</Reference>
+                <Theme>Prayer as Foundation</Theme>
+                <Grade>Hasan</Grade>
+            </Hadith>
+        </HadithCollection>
+        
+        <HadithCategories>
+            <Category id="prayer">Prayer</Category>
+            <Category id="time">Time</Category>
+            <Category id="importance">Importance</Category>
+            <Category id="benefits">Benefits</Category>
+            <Category id="etiquette">Etiquette</Category>
+            <Category id="congregational">Congregational Prayer</Category>
+        </HadithCategories>
+    </DailyHadith>
+
+    <!-- User Settings -->
+    <UserSettings>
+        <LocationSettings>
+            <AutoDetectLocation>true</AutoDetectLocation>
+            <ManualLocation>
+                <City>New York</City>
+                <Country>USA</Country>
+                <Latitude>40.7128</Latitude>
+                <Longitude>-74.0060</Longitude>
+                <Timezone>America/New_York</Timezone>
+            </ManualLocation>
+        </LocationSettings>
+        
+        <PrayerSettings>
+            <CalculationMethod>1</CalculationMethod>
+            <AsrCalculation>1</AsrCalculation>
+            <HighLatitudeMethod>1</HighLatitudeMethod>
+            <SafetyMargin>5</SafetyMargin>
+            <DaylightSaving>auto</DaylightSaving>
+            <Show24HourFormat>true</Show24HourFormat>
+        </PrayerSettings>
+        
+        <NotificationSettings>
+            <EnableAzan>true</EnableAzan>
+            <AzanSound>default_azan.mp3</AzanSound>
+            <AzanVolume>80</AzanVolume>
+            <EnableReminder>true</EnableReminder>
+            <ReminderTime>15</ReminderTime>
+            <EnableQuranNotification>true</EnableQuranNotification>
+            <EnableHadithNotification>true</EnableHadithNotification>
+            <NotificationStyle>popup</NotificationStyle>
+        </NotificationSettings>
+        
+        <DisplaySettings>
+            <Language>English</Language>
+            <ShowArabicText>true</ShowArabicText>
+            <ShowTranslation>true</ShowTranslation>
+            <Theme>auto</Theme>
+            <FontSize>medium</FontSize>
+            <FontFamily>Arial</FontFamily>
+            <ShowAnimations>true</ShowAnimations>
+        </DisplaySettings>
+        
+        <WidgetSettings>
+            <ShowNextPrayer>true</ShowNextPrayer>
+            <ShowCountdown>true</ShowCountdown>
+            <ShowHijriDate>true</ShowHijriDate>
+            <ShowWeather>false</ShowWeather>
+            <CompactMode>false</CompactMode>
+        </WidgetSettings>
+        
+        <FavoriteMosques>
+            <MosqueId>1</MosqueId>
+            <MosqueId>3</MosqueId>
+        </FavoriteMosques>
+        
+        <BookmarkedContent>
+            <BookmarkedVerses>
+                <VerseId>2_238</VerseId>
+                <VerseId>4_103</VerseId>
+            </BookmarkedVerses>
+            <BookmarkedHadith>
+                <HadithId>1</HadithId>
+                <HadithId>3</HadithId>
+            </BookmarkedHadith>
+        </BookmarkedContent>
+    </UserSettings>
+
+    <!-- Audio Files Configuration -->
+    <AudioFiles>
+        <AzanFiles>
+            <Azan id="1">
+                <Name>Makkah Azan</Name>
+                <File>audio/azan/makkah_azan.mp3</File>
+                <Duration>180</Duration>
+            </Azan>
+            <Azan id="2">
+                <Name>Madinah Azan</Name>
+                <File>audio/azan/madinah_azan.mp3</File>
+                <Duration>200</Duration>
+            </Azan>
+            <Azan id="3">
+                <Name>Traditional Azan</Name>
+                <File>audio/azan/traditional_azan.mp3</File>
+                <Duration>170</Duration>
+            </Azan>
+        </AzanFiles>
+        
+        <NotificationSounds>
+            <Sound id="1">
+                <Name>Gentle Bell</Name>
+                <File>audio/notifications/gentle_bell.mp3</File>
+            </Sound>
+            <Sound id="2">
+                <Name>Soft Chime</Name>
+                <File>audio/notifications/soft_chime.mp3</File>
+            </Sound>
+        </NotificationSounds>
+    </AudioFiles>
+
+    <!-- Website Styling -->
+    <StylingConfig>
+        <Themes>
+            <Theme id="light">
+                <Name>Light Theme</Name>
+                <BackgroundColor>#ffffff</BackgroundColor>
+                <TextColor>#1f2937</TextColor>
+                <AccentColor>#059669</AccentColor>
+                <CardColor>#f9fafb</CardColor>
+            </Theme>
+            <Theme id="dark">
+                <Name>Dark Theme</Name>
+                <BackgroundColor>#111827</BackgroundColor>
+                <TextColor>#f9fafb</TextColor>
+                <AccentColor>#10b981</AccentColor>
+                <CardColor>#1f2937</CardColor>
+            </Theme>
+            <Theme id="islamic">
+                <Name>Islamic Green</Name>
+                <BackgroundColor>#ecfdf5</BackgroundColor>
+                <TextColor>#064e3b</TextColor>
+                <AccentColor>#059669</AccentColor>
+                <CardColor>#ffffff</CardColor>
+            </Theme>
+        </Themes>
+        
+        <Animations>
+            <FadeIn>0.3s ease-in-out</FadeIn>
+            <SlideIn>0.5s ease-out</SlideIn>
+            <Pulse>1s infinite</Pulse>
+        </Animations>
+    </StylingConfig>
+
+    <!-- Help & Support -->
+    <HelpSupport>
+        <FAQ>
+            <Question id="1">
+                <Q>How accurate are the prayer times?</Q>
+                <A>Prayer times are calculated using astronomical algorithms and are accurate to within ±1 minute for most locations.</A>
+            </Question>
+            <Question id="2">
+                <Q>Can I add my local mosque?</Q>
+                <A>Yes, use the "Add Mosque" feature in the Mosque Finder section to submit new mosque information.</A>
+            </Question>
+            <Question id="3">
+                <Q>How do I change the calculation method?</Q>
+                <A>Go to Settings > Prayer Settings and select your preferred calculation method from the dropdown menu.</A>
+            </Question>
+        </FAQ>
+        
+        <ContactInfo>
+            <Email>support@namaztimewebsite.com</Email>
+            <Phone>+1-800-NAMAZ-TIME</Phone>
+            <Address>123 Islamic Center, Prayer City, PC 12345</Address>
+        </ContactInfo>
+    </HelpSupport>
+
+</NamazSalahWebsite>
