@@ -1263,3 +1263,70 @@ window.SalahTimeIndicator = {
     currentPrayerTimes,
     userLocation
 };
+// ==================== ICON CLICK HANDLERS ==================== //
+document.addEventListener('DOMContentLoaded', function() {
+    // Profile icon click
+    const profileBtn = document.getElementById('profile-btn');
+    if (profileBtn) {
+        profileBtn.addEventListener('click', function() {
+            alert('Profile settings coming soon!');
+        });
+    }
+
+    // Notification icon click
+    const notificationBtn = document.getElementById('notification-btn');
+    if (notificationBtn) {
+        notificationBtn.addEventListener('click', function() {
+            alert('You have 3 new prayer reminders!');
+        });
+    }
+
+    // Play Azan button
+    const playAzanBtn = document.getElementById('play-azan-btn');
+    if (playAzanBtn) {
+        playAzanBtn.addEventListener('click', function() {
+            alert('🔊 Playing Azan...');
+        });
+    }
+
+    // Prayer Tracker button
+    const trackerBtn = document.getElementById('tracker-btn');
+    if (trackerBtn) {
+        trackerBtn.addEventListener('click', function() {
+            alert('📊 Prayer tracker opened!');
+        });
+    }
+
+    // Nearby Mosques button
+    const mosqueBtn = document.getElementById('mosque-btn');
+    if (mosqueBtn) {
+        mosqueBtn.addEventListener('click', function() {
+            alert('🕌 Finding nearby mosques...');
+        });
+    }
+
+    // Settings FAB
+    const settingsBtn = document.getElementById('settings-btn');
+    if (settingsBtn) {
+        settingsBtn.addEventListener('click', function() {
+            alert('⚙️ Settings panel coming soon!');
+        });
+    }
+
+    // Navigation tabs
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            this.classList.add('active');
+            
+            // Get section name
+            const section = this.dataset.section;
+            alert(`Navigating to ${section} section...`);
+        });
+    });
+});
