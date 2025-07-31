@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salah Time Indicator</title>
+    <title>Salah Time Indicator - Prayer, Presence, Progress</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://cdn-icons-png.flaticon.com/512/3159/3159876.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://cdn-icons-png.flaticon.com/512/3159/3159876.png">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3159/3159876.png">
     
     <!-- Font Imports -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" as="style">
@@ -11,24 +16,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
     
-    <!-- Your CSS and JavaScript links go HERE in the <head> section -->
+    <!-- Your CSS and JavaScript -->
     <link rel="stylesheet" href="/style.css">
-    <script src="/script.js"></script>
 </head>
 <body>
     <!-- Header Section -->
     <header class="header">
         <div class="header-logo">
-            <img src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/esm/icons/user.js" alt="Salah Time Indicator">
+            <img src="https://cdn-icons-png.flaticon.com/512/3159/3159876.png" alt="Salah Time Indicator Logo">
             <h1 class="header-title">Salah Time Indicator</h1>
-            <p class="header-subtitle">Premium Namaz Scheduler & Spiritual Hub</p>
+            <p class="header-subtitle">Prayer, Presence, Progress</p>
         </div>
         <div class="header-controls">
-            <div class="header-icon">
-                <span>👤</span>
+            <div class="header-icon" id="profile-btn">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
             </div>
-            <div class="header-icon">
-                <span>🔔</span>
+            <div class="header-icon" id="notification-btn">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
                 <div class="notification-badge">3</div>
             </div>
         </div>
@@ -60,7 +70,15 @@
             <div class="prayer-times-grid">
                 <div id="fajr-card" class="prayer-card fajr completed">
                     <div class="prayer-header">
-                        <div class="prayer-icon">🌅</div>
+                        <div class="prayer-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            </svg>
+                        </div>
                         <div class="prayer-title">
                             <h3 class="prayer-name">Fajr</h3>
                             <p class="prayer-arabic">الفجر</p>
@@ -73,7 +91,17 @@
 
                 <div id="zuhr-card" class="prayer-card zuhr completed">
                     <div class="prayer-header">
-                        <div class="prayer-icon">☀️</div>
+                        <div class="prayer-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                            </svg>
+                        </div>
                         <div class="prayer-title">
                             <h3 class="prayer-name">Zuhr</h3>
                             <p class="prayer-arabic">الظهر</p>
@@ -86,7 +114,19 @@
 
                 <div id="asr-card" class="prayer-card asr active">
                     <div class="prayer-header">
-                        <div class="prayer-icon">🌤️</div>
+                        <div class="prayer-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                        </div>
                         <div class="prayer-title">
                             <h3 class="prayer-name">Asr</h3>
                             <p class="prayer-arabic">العصر</p>
@@ -99,7 +139,16 @@
 
                 <div id="maghrib-card" class="prayer-card maghrib">
                     <div class="prayer-header">
-                        <div class="prayer-icon">🌅</div>
+                        <div class="prayer-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 18a5 5 0 0 0-10 0"></path>
+                                <line x1="12" y1="2" x2="12" y2="9"></line>
+                                <line x1="4.22" y1="10.22" x2="5.64" y2="11.64"></line>
+                                <line x1="1" y1="18" x2="3" y2="18"></line>
+                                <line x1="21" y1="18" x2="23" y2="18"></line>
+                                <line x1="18.36" y1="11.64" x2="19.78" y2="10.22"></line>
+                            </svg>
+                        </div>
                         <div class="prayer-title">
                             <h3 class="prayer-name">Maghrib</h3>
                             <p class="prayer-arabic">المغرب</p>
@@ -112,7 +161,11 @@
 
                 <div id="isha-card" class="prayer-card isha">
                     <div class="prayer-header">
-                        <div class="prayer-icon">🌙</div>
+                        <div class="prayer-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </div>
                         <div class="prayer-title">
                             <h3 class="prayer-name">Isha</h3>
                             <p class="prayer-arabic">العشاء</p>
@@ -125,21 +178,28 @@
             </div>
         </section>
 
-        <!-- Other sections (Quran, Tasbih, etc.) can be added here -->
-        <section id="quran" class="section hidden">
-            <!-- Quran content -->
-        </section>
-
-        <section id="tasbih" class="section hidden">
-            <!-- Tasbih content -->
-        </section>
-
-        <section id="qiblah" class="section hidden">
-            <!-- Qiblah content -->
-        </section>
-
-        <section id="hadees" class="section hidden">
-            <!-- Hadees content -->
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <div class="action-button primary" id="play-azan-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <span>Play Azan</span>
+            </div>
+            <div class="action-button" id="tracker-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 11 12 14 22 4"></polyline>
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                </svg>
+                <span>Prayer Tracker</span>
+            </div>
+            <div class="action-button" id="mosque-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Nearby Mosques</span>
+            </div>
         </section>
     </main>
 
@@ -147,31 +207,67 @@
     <nav class="bottom-navigation">
         <div class="nav-tabs">
             <a href="#" class="nav-tab active" data-section="namaz-time">
-                <div class="nav-icon">🕌</div>
+                <div class="nav-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                </div>
                 <div class="nav-text">Namaz Time</div>
             </a>
             <a href="#" class="nav-tab" data-section="quran">
-                <div class="nav-icon">📖</div>
+                <div class="nav-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                </div>
                 <div class="nav-text">Quran</div>
             </a>
             <a href="#" class="nav-tab" data-section="tasbih">
-                <div class="nav-icon">📿</div>
+                <div class="nav-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <circle cx="12" cy="1" r="1"></circle>
+                        <circle cx="12" cy="23" r="1"></circle>
+                        <circle cx="20.49" cy="8.51" r="1"></circle>
+                        <circle cx="3.51" cy="15.49" r="1"></circle>
+                        <circle cx="20.49" cy="15.49" r="1"></circle>
+                        <circle cx="3.51" cy="8.51" r="1"></circle>
+                    </svg>
+                </div>
                 <div class="nav-text">Tasbih</div>
             </a>
             <a href="#" class="nav-tab" data-section="qiblah">
-                <div class="nav-icon">🧭</div>
+                <div class="nav-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </div>
                 <div class="nav-text">Qiblah</div>
             </a>
             <a href="#" class="nav-tab" data-section="hadees">
-                <div class="nav-icon">📚</div>
+                <div class="nav-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                    </svg>
+                </div>
                 <div class="nav-text">Hadees</div>
             </a>
         </div>
     </nav>
 
     <!-- Floating Action Button -->
-    <button class="floating-action-button">
-        <span>⚙️</span>
+    <button class="floating-action-button" id="settings-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
     </button>
+
+    <!-- JavaScript -->
+    <script src="/script.js"></script>
 </body>
 </html>
