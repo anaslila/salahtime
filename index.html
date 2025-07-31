@@ -1,1 +1,568 @@
-nothing to show!
+<?xml version="1.0" encoding="UTF-8"?>
+<SalahTimeIndicatorWebsite>
+    <!-- Website Configuration -->
+    <WebsiteConfig>
+        <AppInfo>
+            <Name>Salah Time Indicator</Name>
+            <Version>V 0.5</Version>
+            <Description>Complete Islamic prayer time and spiritual guidance website</Description>
+            <PublishedDate>1st August, 2025</PublishedDate>
+            <DeveloperName>Anas Lila</DeveloperName>
+            <SoftwareCompany>AL Software</SoftwareCompany>
+            <Language>English</Language>
+            <LastUpdated>2025-08-01</LastUpdated>
+        </AppInfo>
+        
+        <Logo>
+            <MainLogo>
+                <IconUrl>https://www.flaticon.com/free-icon/praying_14531456</IconUrl>
+                <IconFile>icons/praying_main_logo.svg</IconFile>
+                <Name>Salah Time Indicator</Name>
+                <Position>top-center</Position>
+                <Size>large</Size>
+            </MainLogo>
+        </Logo>
+
+        <HeaderIcons>
+            <Icon id="profile">
+                <Name>Profile</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/user_747376</IconUrl>
+                <IconFile>icons/user_profile.svg</IconFile>
+                <Position>top-right</Position>
+                <Function>showProfile</Function>
+                <ShowText>false</ShowText>
+            </Icon>
+            <Icon id="notifications">
+                <Name>Notifications</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/bell_3602145</IconUrl>
+                <IconFile>icons/notification_bell.svg</IconFile>
+                <Position>top-right</Position>
+                <Function>showNotifications</Function>
+                <ShowText>false</ShowText>
+                <BadgeCount>3</BadgeCount>
+            </Icon>
+        </HeaderIcons>
+    </WebsiteConfig>
+
+    <!-- Main Navigation Tabs -->
+    <NavigationTabs>
+        <Tab id="namaz" active="true">
+            <Name>Namaz Time</Name>
+            <IconUrl>https://www.flaticon.com/free-icon/prayer_3159876</IconUrl>
+            <IconFile>icons/prayer_time.svg</IconFile>
+            <Function>showNamazTimes</Function>
+            <ShowText>true</ShowText>
+            <Position>bottom</Position>
+            <Color>#059669</Color>
+        </Tab>
+        
+        <Tab id="quran">
+            <Name>Quran</Name>
+            <IconUrl>https://www.flaticon.com/free-icon/quran_2736573</IconUrl>
+            <IconFile>icons/quran_book.svg</IconFile>
+            <Function>showQuran</Function>
+            <ShowText>true</ShowText>
+            <Position>bottom</Position>
+            <Color>#7c3aed</Color>
+        </Tab>
+        
+        <Tab id="tasbih">
+            <Name>Tasbih</Name>
+            <IconUrl>https://www.flaticon.com/free-icon/prayer-beads_3159792</IconUrl>
+            <IconFile>icons/prayer_beads.svg</IconFile>
+            <Function>showTasbih</Function>
+            <ShowText>true</ShowText>
+            <Position>bottom</Position>
+            <Color>#dc2626</Color>
+        </Tab>
+        
+        <Tab id="qiblah">
+            <Name>Qiblah</Name>
+            <IconUrl>https://www.flaticon.com/free-icon/compass_3159833</IconUrl>
+            <IconFile>icons/compass_qibla.svg</IconFile>
+            <Function>showQiblah</Function>
+            <ShowText>true</ShowText>
+            <Position>bottom</Position>
+            <Color>#ea580c</Color>
+        </Tab>
+        
+        <Tab id="hadees">
+            <Name>Hadees</Name>
+            <IconUrl>https://www.flaticon.com/free-icon/hadith_3159845</IconUrl>
+            <IconFile>icons/hadith_book.svg</IconFile>
+            <Function>showHadees</Function>
+            <ShowText>true</ShowText>
+            <Position>bottom</Position>
+            <Color>#0369a1</Color>
+        </Tab>
+    </NavigationTabs>
+
+    <!-- Additional Navigation Items -->
+    <AdditionalNavigation>
+        <NavItem id="settings">
+            <Name>Settings</Name>
+            <IconUrl>https://www.flaticon.com/free-icon/settings_126472</IconUrl>
+            <IconFile>icons/settings_gear.svg</IconFile>
+            <Function>showSettings</Function>
+            <Position>menu</Position>
+            <Color>#6b7280</Color>
+        </NavItem>
+        
+        <NavItem id="developer">
+            <Name>Developer Info</Name>
+            <IconUrl>https://www.flaticon.com/free-icon/developer_3135715</IconUrl>
+            <IconFile>icons/developer_info.svg</IconFile>
+            <Function>showDeveloperInfo</Function>
+            <Position>menu</Position>
+            <Color>#8b5cf6</Color>
+        </NavItem>
+        
+        <NavItem id="about">
+            <Name>About</Name>
+            <IconUrl>https://www.flaticon.com/free-icon/info_471664</IconUrl>
+            <IconFile>icons/info_circle.svg</IconFile>
+            <Function>showAbout</Function>
+            <Position>menu</Position>
+            <Color>#059669</Color>
+        </NavItem>
+    </AdditionalNavigation>
+
+    <!-- Namaz Time Section -->
+    <NamazTimeSection>
+        <CurrentPrayerDisplay>
+            <ShowCurrentTime>true</ShowCurrentTime>
+            <ShowHijriDate>true</ShowHijriDate>
+            <ShowNextPrayer>true</ShowNextPrayer>
+            <ShowCountdown>true</ShowCountdown>
+            <AutoRefresh>60</AutoRefresh>
+        </CurrentPrayerDisplay>
+
+        <PrayerTimes>
+            <Prayer id="fajr">
+                <Name>Fajr</Name>
+                <ArabicName>الفجر</ArabicName>
+                <IconUrl>https://www.flaticon.com/free-icon/sunrise_8068081</IconUrl>
+                <IconFile>icons/sunrise_fajr.svg</IconFile>
+                <Color>#1e40af</Color>
+                <Description>Dawn Prayer</Description>
+                <Rakats>2</Rakats>
+            </Prayer>
+            
+            <Prayer id="zuhr">
+                <Name>Zuhr</Name>
+                <ArabicName>الظهر</ArabicName>
+                <IconUrl>https://www.flaticon.com/free-icon/sun_8068075</IconUrl>
+                <IconFile>icons/sun_zuhr.svg</IconFile>
+                <Color>#f59e0b</Color>
+                <Description>Noon Prayer</Description>
+                <Rakats>4</Rakats>
+            </Prayer>
+            
+            <Prayer id="asr">
+                <Name>Asr</Name>
+                <ArabicName>العصر</ArabicName>
+                <IconUrl>https://www.flaticon.com/free-icon/sunset_8068069</IconUrl>
+                <IconFile>icons/afternoon_asr.svg</IconFile>
+                <Color>#ea580c</Color>
+                <Description>Afternoon Prayer</Description>
+                <Rakats>4</Rakats>
+            </Prayer>
+            
+            <Prayer id="maghrib">
+                <Name>Maghrib</Name>
+                <ArabicName>المغرب</ArabicName>
+                <IconUrl>https://www.flaticon.com/free-icon/sunset_8068078</IconUrl>
+                <IconFile>icons/sunset_maghrib.svg</IconFile>
+                <Color>#dc2626</Color>
+                <Description>Sunset Prayer</Description>
+                <Rakats>3</Rakats>
+            </Prayer>
+            
+            <Prayer id="isha">
+                <Name>Isha</Name>
+                <ArabicName>العشاء</ArabicName>
+                <IconUrl>https://www.flaticon.com/free-icon/moon_8068073</IconUrl>
+                <IconFile>icons/moon_isha.svg</IconFile>
+                <Color>#6366f1</Color>
+                <Description>Night Prayer</Description>
+                <Rakats>4</Rakats>
+            </Prayer>
+        </PrayerTimes>
+
+        <AdditionalFeatures>
+            <Feature id="azan_player">
+                <Name>Azan Player</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/speaker_3159889</IconUrl>
+                <IconFile>icons/azan_speaker.svg</IconFile>
+                <Function>playAzan</Function>
+            </Feature>
+            
+            <Feature id="jamaat_times">
+                <Name>Jamaat Times</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/mosque_3159798</IconUrl>
+                <IconFile>icons/mosque_jamaat.svg</IconFile>
+                <Function>showJamaatTimes</Function>
+            </Feature>
+            
+            <Feature id="prayer_tracker">
+                <Name>Prayer Tracker</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/checklist_3159881</IconUrl>
+                <IconFile>icons/prayer_checklist.svg</IconFile>
+                <Function>trackPrayers</Function>
+            </Feature>
+        </AdditionalFeatures>
+    </NamazTimeSection>
+
+    <!-- Quran Section -->
+    <QuranSection>
+        <QuranFeatures>
+            <Feature id="daily_verse">
+                <Name>Daily Verse</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/calendar_3159907</IconUrl>
+                <IconFile>icons/daily_verse.svg</IconFile>
+                <Function>showDailyVerse</Function>
+            </Feature>
+            
+            <Feature id="quran_reader">
+                <Name>Quran Reader</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/book_3159915</IconUrl>
+                <IconFile>icons/quran_reader.svg</IconFile>
+                <Function>openQuranReader</Function>
+            </Feature>
+            
+            <Feature id="audio_recitation">
+                <Name>Audio Recitation</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/play-button_3159911</IconUrl>
+                <IconFile>icons/audio_play.svg</IconFile>
+                <Function>playRecitation</Function>
+            </Feature>
+            
+            <Feature id="bookmarks">
+                <Name>Bookmarks</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/bookmark_3159919</IconUrl>
+                <IconFile>icons/bookmark_verses.svg</IconFile>
+                <Function>showBookmarks</Function>
+            </Feature>
+        </QuranFeatures>
+
+        <Reciters>
+            <Reciter id="1">
+                <Name>Sheikh Abdul Rahman Al-Sudais</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/microphone_3159923</IconUrl>
+                <AudioPath>audio/sudais/</AudioPath>
+            </Reciter>
+            <Reciter id="2">
+                <Name>Sheikh Mishary Rashid Alafasy</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/microphone_3159923</IconUrl>
+                <AudioPath>audio/alafasy/</AudioPath>
+            </Reciter>
+        </Reciters>
+    </QuranSection>
+
+    <!-- Tasbih Section -->
+    <TasbihSection>
+        <DigitalTasbih>
+            <CounterDisplay>
+                <MaxCount>99</MaxCount>
+                <ResetOption>true</ResetOption>
+                <SaveProgress>true</SaveProgress>
+                <Vibration>true</Vibration>
+                <Sound>true</Sound>
+            </CounterDisplay>
+            
+            <TasbihTypes>
+                <Type id="subhanallah">
+                    <Name>SubhanAllah</Name>
+                    <Arabic>سُبْحَانَ ٱللَّٰهِ</Arabic>
+                    <Translation>Glory be to Allah</Translation>
+                    <Count>33</Count>
+                    <IconUrl>https://www.flaticon.com/free-icon/praise_3159927</IconUrl>
+                </Type>
+                
+                <Type id="alhamdulillah">
+                    <Name>Alhamdulillah</Name>
+                    <Arabic>ٱلْحَمْدُ لِلَّٰهِ</Arabic>
+                    <Translation>All praise is due to Allah</Translation>
+                    <Count>33</Count>
+                    <IconUrl>https://www.flaticon.com/free-icon/gratitude_3159931</IconUrl>
+                </Type>
+                
+                <Type id="allahuakbar">
+                    <Name>Allahu Akbar</Name>
+                    <Arabic>ٱللَّٰهُ أَكْبَرُ</Arabic>
+                    <Translation>Allah is the Greatest</Translation>
+                    <Count>34</Count>
+                    <IconUrl>https://www.flaticon.com/free-icon/praise-allah_3159935</IconUrl>
+                </Type>
+            </TasbihTypes>
+        </DigitalTasbih>
+
+        <TasbihFeatures>
+            <Feature id="custom_dhikr">
+                <Name>Custom Dhikr</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/edit_3159939</IconUrl>
+                <Function>addCustomDhikr</Function>
+            </Feature>
+            
+            <Feature id="dhikr_history">
+                <Name>Dhikr History</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/history_3159943</IconUrl>
+                <Function>showDhikrHistory</Function>
+            </Feature>
+        </TasbihFeatures>
+    </TasbihSection>
+
+    <!-- Qiblah Section -->
+    <QiblahSection>
+        <CompassFeatures>
+            <KaabaDirection>
+                <IconUrl>https://www.flaticon.com/free-icon/kaaba_3159947</IconUrl>
+                <IconFile>icons/kaaba_direction.svg</IconFile>
+                <ShowDistance>true</ShowDistance>
+                <ShowDegrees>true</ShowDegrees>
+            </KaabaDirection>
+            
+            <LocationServices>
+                <AutoDetect>true</AutoDetect>
+                <ManualInput>true</ManualInput>
+                <SaveLocation>true</SaveLocation>
+            </LocationServices>
+        </CompassFeatures>
+
+        <QiblahFeatures>
+            <Feature id="compass_calibration">
+                <Name>Calibrate Compass</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/calibration_3159951</IconUrl>
+                <Function>calibrateCompass</Function>
+            </Feature>
+            
+            <Feature id="prayer_mat">
+                <Name>Digital Prayer Mat</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/prayer-rug_3159955</IconUrl>
+                <Function>showPrayerMat</Function>
+            </Feature>
+        </QiblahFeatures>
+    </QiblahSection>
+
+    <!-- Hadees Section -->
+    <HadeesSection>
+        <HadeesFeatures>
+            <Feature id="daily_hadees">
+                <Name>Daily Hadees</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/daily_3159959</IconUrl>
+                <Function>showDailyHadees</Function>
+            </Feature>
+            
+            <Feature id="hadees_categories">
+                <Name>Browse by Category</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/category_3159963</IconUrl>
+                <Function>browseCategories</Function>
+            </Feature>
+            
+            <Feature id="hadees_search">
+                <Name>Search Hadees</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/search_3159967</IconUrl>
+                <Function>searchHadees</Function>
+            </Feature>
+            
+            <Feature id="favorite_hadees">
+                <Name>Favorite Hadees</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/heart_3159971</IconUrl>
+                <Function>showFavoriteHadees</Function>
+            </Feature>
+        </HadeesFeatures>
+
+        <HadeesCollections>
+            <Collection id="bukhari">
+                <Name>Sahih Bukhari</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/book_3159975</IconUrl>
+                <TotalHadees>7563</TotalHadees>
+            </Collection>
+            
+            <Collection id="muslim">
+                <Name>Sahih Muslim</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/book_3159975</IconUrl>
+                <TotalHadees>7520</TotalHadees>
+            </Collection>
+            
+            <Collection id="abudawud">
+                <Name>Sunan Abu Dawud</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/book_3159975</IconUrl>
+                <TotalHadees>5274</TotalHadees>
+            </Collection>
+        </HadeesCollections>
+    </HadeesSection>
+
+    <!-- Additional Features -->
+    <AdditionalFeatures>
+        <Feature id="islamic_calendar">
+            <Name>Islamic Calendar</Name>
+            <IconUrl>https://www.flaticon.com/free-icon/islamic-calendar_3159979</IconUrl>
+            <Function>showIslamicCalendar</Function>
+            <Description>Hijri calendar with important dates</Description>
+        </Feature>
+        
+        <Feature id="mosque_finder">
+            <Name>Nearby Mosques</Name>
+            <IconUrl>https://www.flaticon.com/free-icon/mosque_3159983</IconUrl>
+            <Function>findNearbyMosques</Function>
+            <Description>Find mosques near your location</Description>
+        </Feature>
+        
+        <Feature id="dua_collection">
+            <Name>Dua Collection</Name>
+            <IconUrl>https://www.flaticon.com/free-icon/prayer_3159987</IconUrl>
+            <Function>showDuaCollection</Function>
+            <Description>Daily duas and supplications</Description>
+        </Feature>
+        
+        <Feature id="prayer_mat_finder">
+            <Name>Prayer Mat Direction</Name>
+            <IconUrl>https://www.flaticon.com/free-icon/prayer-rug_3159991</IconUrl>
+            <Function>showPrayerMatDirection</Function>
+            <Description>Visual prayer mat with Qiblah direction</Description>
+        </Feature>
+        
+        <Feature id="ramadan_tracker">
+            <Name>Ramadan Tracker</Name>
+            <IconUrl>https://www.flaticon.com/free-icon/ramadan_3159995</IconUrl>
+            <Function>showRamadanTracker</Function>
+            <Description>Sehri, Iftar times and Ramadan calendar</Description>
+        </Feature>
+        
+        <Feature id="99_names">
+            <Name>99 Names of Allah</Name>
+            <IconUrl>https://www.flaticon.com/free-icon/allah_3159999</IconUrl>
+            <Function>show99Names</Function>
+            <Description>Asma ul Husna with meanings</Description>
+        </Feature>
+    </AdditionalFeatures>
+
+    <!-- Settings Section -->
+    <SettingsSection>
+        <SettingGroups>
+            <Group id="prayer_settings">
+                <Name>Prayer Settings</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/prayer_3160003</IconUrl>
+                <Settings>
+                    <Setting id="calculation_method">
+                        <Name>Calculation Method</Name>
+                        <Type>dropdown</Type>
+                        <Options>
+                            <Option>Muslim World League</Option>
+                            <Option>ISNA</Option>
+                            <Option>Egyptian General Authority</Option>
+                            <Option>Umm Al-Qura University</Option>
+                        </Options>
+                    </Setting>
+                    
+                    <Setting id="asr_method">
+                        <Name>Asr Calculation</Name>
+                        <Type>dropdown</Type>
+                        <Options>
+                            <Option>Standard (Shafi, Maliki, Hanbali)</Option>
+                            <Option>Hanafi</Option>
+                        </Options>
+                    </Setting>
+                </Settings>
+            </Group>
+            
+            <Group id="notification_settings">
+                <Name>Notification Settings</Name>
+                <IconUrl>https://www.flaticon.com/free-icon/notification_3160007</IconUrl>
+                <Settings>
+                    <Setting id="enable_azan">
+                        <Name>Enable Azan</Name>
+                        <Type>toggle</Type>
+                        <Default>true</Default>
+                    </Setting>
+                    
+                    <Setting id="azan_volume">
+                        <Name>Azan Volume</Name>
+                        <Type>slider</Type>
+                        <Range>0-100</Range>
+                        <Default>80</Default>
+                    </Setting>
+                </Settings>
+            </Group>
+        </SettingGroups>
+    </SettingsSection>
+
+    <!-- Developer Information -->
+    <DeveloperInfo>
+        <Developer>
+            <Name>Anas Lila</Name>
+            <Company>AL Software</Company>
+            <IconUrl>https://www.flaticon.com/free-icon/developer_3160011</IconUrl>
+            <Email>anas@alsoftware.com</Email>
+            <Website>www.alsoftware.com</Website>
+            <LinkedIn>linkedin.com/in/anaslila</LinkedIn>
+            <GitHub>github.com/anaslila</GitHub>
+        </Developer>
+        
+        <AppDetails>
+            <Version>V 0.5</Version>
+            <PublishedDate>1st August, 2025</PublishedDate>
+            <LastUpdate>1st August, 2025</LastUpdate>
+            <Platform>Web Application</Platform>
+            <Language>JavaScript, HTML5, CSS3</Language>
+            <Framework>Progressive Web App (PWA)</Framework>
+        </AppDetails>
+        
+        <Features>
+            <Feature>Accurate Prayer Times</Feature>
+            <Feature>Qiblah Direction</Feature>
+            <Feature>Digital Tasbih Counter</Feature>
+            <Feature>Daily Quran & Hadees</Feature>
+            <Feature>Islamic Calendar</Feature>
+            <Feature>Mosque Finder</Feature>
+            <Feature>Offline Capability</Feature>
+            <Feature>Multi-language Support</Feature>
+        </Features>
+        
+        <Acknowledgments>
+            <Acknowledgment>Icons by Flaticon</Acknowledgment>
+            <Acknowledgment>Prayer calculation algorithms by Islamic Finder</Acknowledgment>
+            <Acknowledgment>Quran text by Tanzil Project</Acknowledgment>
+            <Acknowledgment>Hadees collection by Sunnah.com</Acknowledgment>
+        </Acknowledgments>
+    </DeveloperInfo>
+
+    <!-- Theme Configuration -->
+    <ThemeConfig>
+        <DefaultTheme>light</DefaultTheme>
+        
+        <Themes>
+            <Theme id="light">
+                <Name>Light Theme</Name>
+                <PrimaryColor>#059669</PrimaryColor>
+                <SecondaryColor>#10b981</SecondaryColor>
+                <BackgroundColor>#ffffff</BackgroundColor>
+                <TextColor>#1f2937</TextColor>
+                <CardColor>#f9fafb</CardColor>
+                <AccentColor>#6366f1</AccentColor>
+            </Theme>
+            
+            <Theme id="dark">
+                <Name>Dark Theme</Name>
+                <PrimaryColor>#10b981</PrimaryColor>
+                <SecondaryColor>#34d399</SecondaryColor>
+                <BackgroundColor>#111827</BackgroundColor>
+                <TextColor>#f9fafb</TextColor>
+                <CardColor>#1f2937</CardColor>
+                <AccentColor>#8b5cf6</AccentColor>
+            </Theme>
+            
+            <Theme id="islamic">
+                <Name>Islamic Green</Name>
+                <PrimaryColor>#059669</PrimaryColor>
+                <SecondaryColor>#10b981</SecondaryColor>
+                <BackgroundColor>#ecfdf5</BackgroundColor>
+                <TextColor>#064e3b</TextColor>
+                <CardColor>#ffffff</CardColor>
+                <AccentColor>#dc2626</AccentColor>
+            </Theme>
+        </Themes>
+    </ThemeConfig>
+
+</SalahTimeIndicatorWebsite>
