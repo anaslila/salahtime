@@ -14,6 +14,35 @@ const prayerTimesData = {
 };
 
 // ==================== TIME FORMATTING FUNCTIONS ==================== //
+function updateCurrentTime() {
+    const now = new Date();
+    
+    // Fix 12-hour format with seconds
+    const timeString = now.toLocaleTimeString('en-US', {
+        hour12: true,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    });
+    
+    const dateString = now.toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+    
+    // Update DOM elements safely
+    const timeElement = document.querySelector('.current-time');
+    const dateElement = document.querySelector('.current-date');
+    
+    if (timeElement) timeElement.textContent = timeString;
+    if (dateElement) dateElement.textContent = dateString;
+}
+
+// Update every second
+setInterval(updateCurrentTime, 1000);
+
 function formatTime12hrWithSeconds(timeStr) {
     const now = new Date();
     const [hourStr, minuteStr] = timeStr.split(':');
