@@ -55,6 +55,12 @@
     --transition-fast: 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
     --transition-normal: 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
     --transition-slow: 500ms cubic-bezier(0.4, 0.0, 0.2, 1);
+    :root {
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-system: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
 }
 
 /* ==================== BASE STYLES ==================== */
