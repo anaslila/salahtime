@@ -449,3 +449,51 @@ console.log("Prayer times data:", currentPrayerTimes);
 console.log("Navigation tabs:", document.querySelectorAll('.nav-tab').length);
 console.log("Prayer cards:", document.querySelectorAll('.prayer-card').length);
 console.log("Header icons:", document.querySelectorAll('.header-icon').length);
+document.addEventListener('DOMContentLoaded', function() {
+    // Fix navigation
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.addEventListener('click', function(e) {
+            e.preventDefault();
+            const section = this.dataset.section;
+            console.log('Navigating to:', section); // Debug log
+            
+            if (section) {
+                showSection(section);
+                showNotification('Navigation', `Switched to ${section.replace('-', ' ')}`);
+            }
+        });
+    });
+    
+    // Fix header icons
+    const profileBtn = document.getElementById('profile-btn');
+    const notificationBtn = document.getElementById('notification-btn');
+    const settingsBtn = document.getElementById('settings-btn');
+    
+    if (profileBtn) {
+        profileBtn.addEventListener('click', () => {
+            console.log('Profile clicked'); // Debug log
+            showNotification('Profile', 'Profile features coming soon!');
+        });
+    }
+    
+    if (notificationBtn) {
+        notificationBtn.addEventListener('click', () => {
+            console.log('Notifications clicked'); // Debug log
+            showNotification('Notifications', 'You have prayer reminders!');
+        });
+    }
+    
+    if (settingsBtn) {
+        settingsBtn.addEventListener('click', () => {
+            console.log('Settings clicked'); // Debug log
+            showSection('settings');
+        });
+    }
+    
+    // Fix tasbih counter
+    const tasbihBtn = document.getElementById('tasbih-counter-btn');
+    if (tasbihBtn) {
+        tasbihBtn.addEventListener('click', incrementTasbih);
+    }
+});
+
