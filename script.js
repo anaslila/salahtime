@@ -410,3 +410,13 @@ window.addEventListener('unhandledrejection', (event) => {
     console.error('Unhandled promise rejection:', event.reason);
     showNotification('⚠️ Error', 'Failed to load some data. Please check your connection.');
 });
+// Add this to your JavaScript console to check basic functionality
+console.log("Current section:", currentSection);
+console.log("Tasbih count:", tasbihCount);
+console.log("User settings:", userSettings);
+console.log("Prayer times data:", currentPrayerTimes);
+
+// Check if DOM elements exist
+console.log("Navigation tabs:", document.querySelectorAll('.nav-tab').length);
+console.log("Prayer cards:", document.querySelectorAll('.prayer-card').length);
+console.log("Header icons:", document.querySelectorAll('.header-icon').length);
