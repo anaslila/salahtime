@@ -1,10 +1,6 @@
-/* ==================== RESET & BASE STYLES ==================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* Complete CSS for Salah Time Indicator - Enhanced Islamic Prayer App */
 
+/* CSS Variables and Design System */
 :root {
     /* Color System */
     --primary-color: #059669;
@@ -30,10 +26,10 @@
     --qiblah-color: #ea580c;
     --hadees-color: #0369a1;
     
-    /* Typography - All Product Sans */
-    --font-primary: 'Product Sans', 'Roboto', Arial, sans-serif;
-    --font-secondary: 'Product Sans', 'Roboto', Arial, sans-serif;
-    --font-system: 'Product Sans', 'Roboto', Arial, sans-serif;
+    /* Typography - All Inter */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-system: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     
     /* Spacing */
     --spacing-xs: 4px;
@@ -55,15 +51,15 @@
     --transition-fast: 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
     --transition-normal: 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
     --transition-slow: 500ms cubic-bezier(0.4, 0.0, 0.2, 1);
-    :root {
-    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-system: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* ==================== BASE STYLES ==================== */
 html {
     scroll-behavior: smooth;
     font-size: 16px;
@@ -78,11 +74,10 @@ body {
     overflow-x: hidden;
 }
 
-/* ==================== HEADER SECTION ==================== */
+/* Header Section */
 .header {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding: var(--spacing-xl) var(--spacing-lg);
     position: sticky;
@@ -101,11 +96,12 @@ body {
 }
 
 .header-logo img {
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
     border-radius: var(--radius-md);
     box-shadow: 0 4px 20px rgba(5, 150, 105, 0.15);
     transition: transform var(--transition-normal);
+    object-fit: cover;
 }
 
 .header-logo img:hover {
@@ -144,7 +140,6 @@ body {
 .header-icon {
     background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     border-radius: var(--radius-full);
     padding: 14px;
     box-shadow: 0 4px 16px var(--shadow-color);
@@ -182,10 +177,9 @@ body {
     align-items: center;
     justify-content: center;
     animation: pulse 2s infinite;
-    font-family: var(--font-system);
 }
 
-/* ==================== MAIN CONTENT AREA ==================== */
+/* Main Content Area */
 .main-content {
     max-width: 1440px;
     margin: 0 auto;
@@ -193,11 +187,10 @@ body {
     padding-bottom: 120px;
 }
 
-/* ==================== CURRENT TIME DISPLAY ==================== */
+/* Current Time Display */
 .current-time-display {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%);
     backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
     border-radius: var(--radius-xl);
     padding: var(--spacing-xl);
     margin: var(--spacing-lg);
@@ -291,7 +284,7 @@ body {
     transition: width var(--transition-slow);
 }
 
-/* ==================== SECTIONS ==================== */
+/* Sections */
 .section {
     margin: var(--spacing-xl) 0;
 }
@@ -306,7 +299,6 @@ body {
     padding: var(--spacing-xl);
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%);
     backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
     border-radius: var(--radius-xl);
     margin: var(--spacing-lg);
     box-shadow: 0 8px 32px var(--shadow-color);
@@ -334,7 +326,7 @@ body {
     margin-top: var(--spacing-xs);
 }
 
-/* ==================== PRAYER TIMES GRID ==================== */
+/* Prayer Times Grid */
 .prayer-times-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -345,12 +337,11 @@ body {
 .prayer-card {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     border-radius: var(--radius-lg);
     padding: var(--spacing-xl);
     box-shadow: 0 8px 32px var(--shadow-color);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    min-height: 180px;
+    min-height: 200px;
     transition: all var(--transition-normal);
     cursor: pointer;
     position: relative;
@@ -382,7 +373,6 @@ body {
     justify-content: center;
     font-weight: bold;
     font-size: 0.875rem;
-    font-family: var(--font-system);
 }
 
 .prayer-header {
@@ -424,8 +414,15 @@ body {
 .prayer-time {
     font-family: var(--font-system);
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.prayer-time-range {
+    font-family: var(--font-system);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -497,11 +494,10 @@ body {
     color: var(--isha-color);
 }
 
-/* ==================== CONTENT CARDS ==================== */
+/* Content Cards */
 .content-card {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     border-radius: var(--radius-lg);
     padding: var(--spacing-xl);
     margin: var(--spacing-lg);
@@ -548,17 +544,46 @@ body {
     color: var(--primary-color);
 }
 
-/* ==================== DIGITAL COUNTER (TASBIH) ==================== */
+/* Digital Counter (Tasbih) */
 .digital-counter {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
     backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
     border-radius: var(--radius-2xl);
     padding: var(--spacing-2xl);
     margin: var(--spacing-lg);
     box-shadow: 0 12px 48px var(--shadow-color);
     border: 2px solid rgba(220, 38, 38, 0.2);
     text-align: center;
+}
+
+.tasbih-selector {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.tasbih-option {
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(220, 38, 38, 0.2);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    font-family: var(--font-system);
+    font-size: 0.875rem;
+    color: var(--text-primary);
+}
+
+.tasbih-option.active {
+    background: var(--tasbih-color);
+    color: white;
+    border-color: var(--tasbih-color);
+}
+
+.tasbih-option:hover {
+    background: rgba(220, 38, 38, 0.1);
 }
 
 .current-dhikr {
@@ -622,7 +647,6 @@ body {
     color: white;
     font-weight: 600;
     margin: 0 auto var(--spacing-lg);
-    font-family: var(--font-system);
 }
 
 .counter-button:hover {
@@ -662,13 +686,38 @@ body {
     color: white;
 }
 
-/* ==================== COMPASS (QIBLAH) ==================== */
+.target-selector {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.target-option {
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(5, 150, 105, 0.2);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    font-family: var(--font-system);
+    font-size: 0.875rem;
+    color: var(--text-primary);
+}
+
+.target-option.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Compass (Qiblah) */
 .compass-container {
     width: 320px;
     height: 320px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
     backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
     border-radius: var(--radius-full);
     margin: var(--spacing-lg) auto;
     box-shadow: 0 12px 48px var(--shadow-color);
@@ -804,7 +853,7 @@ body {
     margin-bottom: var(--spacing-xs);
 }
 
-/* ==================== SETTINGS ==================== */
+/* Settings */
 .setting-item {
     display: flex;
     justify-content: space-between;
@@ -828,7 +877,7 @@ body {
     background: white;
 }
 
-/* ==================== BOTTOM NAVIGATION ==================== */
+/* Bottom Navigation */
 .bottom-navigation {
     position: fixed;
     bottom: 0;
@@ -836,7 +885,6 @@ body {
     right: 0;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 -4px 32px var(--shadow-color);
     border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
@@ -894,7 +942,7 @@ body {
     white-space: nowrap;
 }
 
-/* ==================== FLOATING ACTION BUTTON ==================== */
+/* Floating Action Button */
 .floating-action-button {
     position: fixed;
     bottom: 120px;
@@ -924,7 +972,66 @@ body {
     color: white;
 }
 
-/* ==================== RESPONSIVE DESIGN ==================== */
+/* Toast Notification */
+.toast-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    color: white;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(5, 150, 105, 0.3);
+    z-index: 10000;
+    max-width: 300px;
+    font-family: var(--font-system);
+    animation: slideInRight 0.3s ease-out;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes slideInRight {
+    from { 
+        opacity: 0; 
+        transform: translateX(100%); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(0); 
+    }
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+.fade-in {
+    animation: fadeInDown 0.6s ease-out;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .header {
         padding: var(--spacing-lg) var(--spacing-md);
@@ -998,55 +1105,58 @@ body {
     }
 }
 
-/* ==================== ANIMATIONS ==================== */
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 0.8;
-        transform: scale(1.05);
+/* Dark Mode Support (Future Implementation) */
+@media (prefers-color-scheme: dark) {
+    .dark-mode {
+        --background-color: #0f172a;
+        --surface-color: #1e293b;
+        --text-primary: #f1f5f9;
+        --text-secondary: #94a3b8;
+        --border-color: rgba(255, 255, 255, 0.1);
+        --shadow-color: rgba(0, 0, 0, 0.3);
     }
 }
 
-/* ==================== UTILITY CLASSES ==================== */
-.hidden {
-    display: none !important;
+/* Print Styles */
+@media print {
+    .header-controls,
+    .bottom-navigation,
+    .floating-action-button {
+        display: none;
+    }
+    
+    .main-content {
+        padding-bottom: 0;
+    }
+    
+    .prayer-times-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.fade-in {
-    animation: fadeInDown 0.6s ease-out;
-}
-/* Add these missing styles */
-.toast-notification {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-    color: white;
-    padding: 16px 20px;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(5, 150, 105, 0.3);
-    z-index: 10000;
-    max-width: 300px;
-    font-family: 'Inter', sans-serif;
-    animation: slideInRight 0.3s ease-out;
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #000000;
+        --secondary-color: #333333;
+        --text-primary: #000000;
+        --text-secondary: #666666;
+        --border-color: #000000;
+    }
+    
+    .prayer-card,
+    .content-card {
+        border: 2px solid #000000;
+    }
 }
 
-@keyframes slideInRight {
-    from { opacity: 0; transform: translateX(100%); }
-    to { opacity: 1; transform: translateX(0); }
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
-
